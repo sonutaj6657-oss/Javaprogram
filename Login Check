@@ -1,0 +1,39 @@
+import java.util.Scanner;
+
+public class LoginCheck {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        String correctUsername = "admin";
+        String correctPassword = "1234";
+
+        int attempts = 0;
+
+        while (attempts < 3) {
+
+            System.out.print("Enter Username: ");
+            String username = sc.nextLine();
+
+            System.out.print("Enter Password: ");
+            String password = sc.nextLine();
+
+            if (username.equals(correctUsername) && password.equals(correctPassword)) {
+                System.out.println("Login Successful!");
+                break;
+            } else {
+                attempts++;
+                System.out.println("Invalid username or password.");
+
+                if (attempts == 3) {
+                    System.out.println("Error: Too many failed attempts. Access Denied!");
+                } else {
+                    System.out.println("Attempts left: " + (3 - attempts));
+                }
+            }
+        }
+
+        sc.close();
+    }
+}
