@@ -1,0 +1,28 @@
+
+
+public class Studentdetails {
+    public static void main(String[] args){
+        String[] names = {"Sam" , "Roop" , "Tona" , "Annu" , "Pari"};
+        int marks[] ={90, 75, 65, 40, 92};
+        System.out.print("Student Details:");
+        for(int i=0; i<5; i++){
+            String grade;
+            if(marks[i]>=90)
+            grade="A";
+            else if(marks[i]>=75)
+            grade="B";
+            else if(marks[i]>=65)
+            grade="C";
+            else if(marks[i]>=40)
+            grade="D";
+            else if (marks[i]>=90)
+            grade="A";
+            else 
+            grade="fail";
+            System.out.println("Name : " +names[i]);
+            System.out.println("Marks:" +marks[i]);
+            System.out.println("Grade:" + grade);
+            System.out.println("-------");
+        }
+    }
+}       
