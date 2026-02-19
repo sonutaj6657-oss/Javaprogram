@@ -1,0 +1,57 @@
+import java.util.ArrayList;
+import java.util.List;
+class Contact {
+    private String name;
+    private String phoneNumber;
+
+    public Contact(String name, String phoneNumber) {
+        this.name = name;
+        this.phoneNumber = phoneNumber;
+    }
+    public String getName() {
+        return name;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+}
+
+public class Contactbook {
+
+    public static void main(String[] args) {
+
+try{
+        List<Contact> contacts = new ArrayList<>();
+
+        
+        contacts.add(new Contact("Sam", "9876543210"));
+        contacts.add(new Contact("John", "9876543211"));
+        contacts.add(new Contact("Priya", "9876543212"));
+        contacts.add(new Contact("Rahul", "9876543213"));
+        contacts.add(new Contact("Anita", "9876543214"));
+        contacts.add(new Contact("Vijay", "9876543215"));
+        contacts.add(new Contact("Sneha", "9876543216"));
+        contacts.add(new Contact("Kiran", "9876543217"));
+        contacts.add(new Contact("Arun", "9876543218"));
+        contacts.add(new Contact("Divya", "9876543219"));
+
+        
+        System.out.println("📒 CONTACT BOOK");
+        System.out.println("----------------------------");
+
+        for (int i = 0; i < contacts.size(); i++) {
+            Contact c = contacts.get(i);
+            System.out.println((i + 1) + ". Name: " + c.getName()
+                    + " | Phone: " + c.getPhoneNumber());
+        }
+    }    
+        catch(Exception e){
+            System.out.println("Contact not found");
+        }
+        System.out.println("Program Continues");
+    
+}
+}
+
+
