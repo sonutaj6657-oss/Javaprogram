@@ -1,0 +1,169 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
+class Blog {
+    private int id;
+    private String authorName;
+    private String title;
+    private String category;
+
+    public Blog(int id, String authorName, String title, String category) {
+        this.id = id;
+        this.authorName = authorName;
+        this.title = title;
+        this.category = category;
+    }
+    public int getId() {
+        return id;
+    }
+
+    public String getAuthorName() {
+        return authorName;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setAuthorName(String authorName) {
+        this.authorName = authorName;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    public void display() {
+        System.out.println("ID: " + id);
+        System.out.println("Author: " + authorName);
+        System.out.println("Title: " + title);
+        System.out.println("Category: " + category);
+        System.out.println("-----------------------------");
+    }
+}
+
+public class BlogSystem {
+
+    static ArrayList<Blog> blogs = new ArrayList<>();
+    static Scanner sc = new Scanner(System.in);
+    static int idCounter = 1;
+    static String[] categories = {
+        "Technology",
+        "Education",
+        "Travel",
+        "Food",
+        "Sports"
+    };
+
+
+    public static void main(String[] args) {
+
+        while (true) {
+            System.out.println("\n===== BLOG MANAGEMENT SYSTEM =====");
+            System.out.println("1. Create Blog");
+            System.out.println("2. View Blogs");
+            System.out.println("3. Edit Blog");
+            System.out.println("4. Delete Blog");
+            System.out.println("5. Exit");
+            System.out.print("Enter choice: ");
+
+            int choice = sc.nextInt();
+            sc.nextLine(); // consume newline
+
+            switch (choice) {
+                case 1:
+                    createBlog();
+                    break;
+                case 2:
+                    viewBlogs();
+                    break;
+                case 3:
+                    editBlog();
+                    break;
+                case 4:
+                    deleteBlog();
+                    break;
+                case 5:
+                    System.out.println("Exiting...");
+                    return;
+                default:
+                    System.out.println("Invalid choice!");
+            }
+        }
+    }
+
+    public static void createBlog() {
+        System.out.print("Enter Author Name: ");
+        String author = sc.nextLine();
+
+        System.out.print("Enter Blog Title: ");
+        String title = sc.nextLine();
+
+        System.out.print("Enter Category: ");
+        String category = sc.nextLine();
+
+        Blog blog = new Blog(idCounter++, author, title, category);
+        blogs.add(blog);
+
+        System.out.println("Blog Created Successfully!");
+    }
+
+    public static void viewBlogs() {
+        if (blogs.isEmpty()) {
+            System.out.println("No blogs available.");
+            return;
+        }
+
+        for (Blog blog : blogs) {
+            blog.display();
+        }
+    }
+
+    public static void editBlog() {
+        System.out.print("Enter Blog ID to edit: ");
+        int id = sc.nextInt();
+        sc.nextLine();
+
+        for (Blog blog : blogs) {
+            if (blog.getId() == id) {
+
+                System.out.print("Enter New Author Name: ");
+                blog.setAuthorName(sc.nextLine());
+
+                System.out.print("Enter New Title: ");
+                blog.setTitle(sc.nextLine());
+
+                System.out.print("Enter New Category: ");
+                blog.setCategory(sc.nextLine());
+
+                System.out.println("Blog Updated Successfully!");
+                return;
+            }
+        }
+
+        System.out.println("Blog not found!");
+    }
+
+    public static void deleteBlog() {
+        System.out.print("Enter Blog ID to delete: ");
+        int id = sc.nextInt();
+
+        for (Blog blog : blogs) {
+            if (blog.getId() == id) {
+                blogs.remove(blog);
+                System.out.println("Blog Deleted Successfully!");
+                return;
+            }
+        }
+
+        System.out.println("Blog not found!");
+    }
+}
