@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Feedback Form</title>
+
+```
+<style>
+    body {
+        font-family: Arial;
+        background-color: #f2f2f2;
+    }
+
+    .container {
+        width: 400px;
+        margin: 50px auto;
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px gray;
+    }
+
+    h2 {
+        text-align: center;
+    }
+
+    input, textarea, select {
+        width: 100%;
+        padding: 8px;
+        margin: 8px 0;
+    }
+
+    button {
+        width: 100%;
+        padding: 10px;
+        background-color: green;
+        color: white;
+        border: none;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: darkgreen;
+    }
+</style>
+```
+
+</head>
+
+<body>
+
+<div class="container">
+    <h2>Feedback Form</h2>
+
+```
+<form action="/submitFeedback" method="post">
+
+    <label>Name:</label>
+    <input type="text" name="name" required>
+
+    <label>Email:</label>
+    <input type="email" name="email" required>
+
+    <label>Feedback About:</label>
+    <select name="feedbackAbout">
+        <option value="Problem">Problem</option>
+        <option value="Course">Course</option>
+        <option value="Website">Website</option>
+        <option value="Feature">Feature</option>
+    </select>
+
+    <label>Enter Name / Title:</label>
+    <input type="text" name="entityName" placeholder="e.g. Two Sum Problem">
+
+    <label>Rating:</label>
+    <select name="rating">
+        <option>Excellent</option>
+        <option>Good</option>
+        <option>Average</option>
+        <option>Poor</option>
+    </select>
+
+    <label>Comments:</label>
+    <textarea name="comments"></textarea>
+
+    <button type="submit">Submit Feedback</button>
+
+</form>
+```
+
+</div>
+
+</body>
+</html>
+
