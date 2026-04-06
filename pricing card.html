@@ -1,0 +1,150 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Pricing Cards UI</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #ebb9e6;
+      margin: 0;
+      padding: 0;
+    }
+
+    .pricing-container {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      padding: 60px;
+      flex-wrap: wrap;
+    }
+
+    .card {
+      background: rgb(218, 169, 205);
+      padding: 25px;
+      width: 260px;
+      text-align: center;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+
+      /* Smooth animation */
+      transition: all 0.3s ease;
+    }
+
+    /* Highlighted Plan */
+    .highlight {
+      border: 2px solid #882f83;
+      transform: scale(1.08);
+      background: linear-gradient(135deg, #8b277b, #df7cbe);
+      color: white;
+    }
+
+    .highlight button {
+      background: white;
+      color: #7a3e72;
+    }
+
+    .highlight button:hover {
+      background: #e6e6e6;
+    }
+
+    /* Hover Effects */
+    .card:hover {
+      transform: translateY(-12px) scale(1.05);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+    }
+
+    h2 {
+      margin-bottom: 10px;
+    }
+
+    .price {
+      font-size: 26px;
+      margin: 10px 0;
+      font-weight: bold;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    ul li {
+      margin: 10px 0;
+    }
+
+    button {
+      background: #b656b9;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      margin-top: 15px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: 0.3s;
+      font-size: 14px;
+    }
+
+    button:hover {
+      background: #d668c8;
+      transform: scale(1.1);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .pricing-container {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <div class="pricing-container">
+
+    <!-- Basic Plan -->
+    <div class="card">
+      <h2>Basic</h2>
+      <p class="price">$10/month</p>
+      <ul>
+        <li>1 User</li>
+        <li>Basic Support</li>
+        <li>Limited Access</li>
+      </ul>
+      <button>Choose Plan</button>
+    </div>
+
+    <!-- Standard Plan (Highlighted) -->
+    <div class="card highlight">
+      <h2>Standard</h2>
+      <p class="price">$20/month</p>
+      <ul>
+        <li>5 Users</li>
+        <li>Priority Support</li>
+        <li>Full Access</li>
+      </ul>
+      <button>Choose Plan</button>
+    </div>
+
+    <!-- Premium Plan -->
+    <div class="card">
+      <h2>Premium</h2>
+      <p class="price">$40/month</p>
+      <ul>
+        <li>Unlimited Users</li>
+        <li>24/7 Support</li>
+        <li>All Features</li>
+      </ul>
+      <button>Choose Plan</button>
+    </div>
+
+  </div>
+
+</body>
+</html>
+```
