@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expanding Cards</title>
+    
+    
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #111;
+        }
+        
+        .container {
+            display: flex;
+            width: 90vw;
+        }
+
+        .panel {
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 80vh;
+            border-radius: 20px;
+            color: #fff;
+            cursor: pointer;
+            flex: 0.5;
+            margin: 10px;
+            position: relative;
+            transition: flex 0.7s ease-in;
+        }
+
+        .panel h3 {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            margin: 0;
+            opacity: 0;
+            font-size: 24px;
+        }
+
+        .panel.active {
+            flex: 5;
+        }
+
+        .panel.active h3 {
+            opacity: 1;
+            transition: opacity 0.3s ease-in 0.4s;
+        }
+
+        /* Responsive */
+        @media(max-width: 600px) {
+            .panel:nth-of-type(4),
+            .panel:nth-of-type(5) {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">    
+    <div class="panel active" style="background-image: url('https://i.pinimg.com/1200x/8f/c3/2c/8fc32ce693baeb996184e8b4f3a4cc43.jpg')">
+        <h3>WELCOME TO THE COFFEECODES </h3>
+    </div>
+    <div class="panel" style="background-image: url('https://i.pinimg.com/736x/cf/83/3d/cf833dfaf618939b8e5aad86e3aa87e6.jpg')">
+        <h3>CAPPUCCINO</h3>
+    </div>
+    <div class="panel" style="background-image: url('https://i.pinimg.com/736x/45/ff/e0/45ffe0a3858c8ec66fde7f063796a827.jpg')">
+        <h3>COLD COFFE</h3>
+    </div>
+    <div class="panel" style="background-image: url('https://i.pinimg.com/736x/0e/9a/9e/0e9a9ef6b0675a74f04ac1ec9fd64d45.jpg')">
+        <h3>COFFEE LATE</h3>
+    </div>
+    <div class="panel" style="background-image: url('https://i.pinimg.com/736x/da/c6/58/dac658ab43a30553297c748da1d7ace5.jpg')">
+        <h3>MATCHA</h3>
+    </div>
+</div>
+
+<script>
+    const panels = document.querySelectorAll('.panel');
+
+    panels.forEach(panel => {
+        panel.addEventListener('click', () => {
+            removeActiveClasses();
+            panel.classList.add('active');
+        });
+    });
+
+    function removeActiveClasses() {
+        panels.forEach(panel => {
+            panel.classList.remove('active');
+        });
+    }
+</script>
+
+</body>
+</html>
